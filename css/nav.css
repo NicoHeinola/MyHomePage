@@ -1,0 +1,83 @@
+:root {
+    --navColor: rgb(94, 94, 94);
+    --navLinkColor: rgba(65, 65, 65, 0);
+    --navBorderColor: rgb(66, 66, 66);
+    --navBarColor: rgb(54, 46, 46);
+    --dragBarWidth: 25px;
+}
+
+nav {
+    position: fixed;
+    z-index: 100;
+}
+
+nav>div {
+    left: calc(100% * -1 + var(--dragBarWidth));
+    display: flex;
+    flex-direction: row;
+    width: min-content;
+    height: 100vh;
+    transition: all 0.5s;
+}
+
+nav>div:hover {
+    left: 0;
+}
+
+nav .content {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    background: var(--navColor);
+    /*border: 50px solid var(--navBorderColor);*/
+}
+
+nav .content .box {
+    width: 100%;
+}
+
+nav .content #titleBox {
+    margin: 10px 0;
+}
+
+nav .content #titleBox h2 {
+    margin: auto;
+}
+
+nav .content #linkBox {
+    display: flex;
+    flex-direction: column;
+}
+
+nav .content #linkBox .link {
+    width: 200px;
+    height: auto;
+    line-height: auto;
+    text-align: center;
+    margin: 10px auto;
+    padding: 5px 0;
+    background: var(--navLinkColor);
+}
+
+nav .content #linkBox .link::after {
+    display: block;
+    background: orange;
+    width: 0%;
+    height: 5px;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 25px;
+    content: "";
+    transition: all 0.25s;
+}
+
+nav .content #linkBox .link:hover::after {
+    width: 100%;
+}
+
+nav .dragBar {
+    width: var(--dragBarWidth);
+    height: 100%;
+    margin: auto;
+    /*background: var(--navBarColor);*/
+}
