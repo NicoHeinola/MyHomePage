@@ -24,15 +24,22 @@
     height: 100%;
 }
 
+#front .animatedSky .stars .hiddenStar {
+    display: none !important;
+}
+
 #front .animatedSky .stars .star {
-    /*--size: 25px;
-    width: var(--size);
-    height: var(--size);*/
-    opacity: 0%;
-    /*background: white;*/
-    animation-name: "starTwinkle";
-    animation-timing-function: linear;
+    position: absolute;
+}
+
+#front .animatedSky .stars .fadeStar {
+    animation-name: "fadeStarAnimation";
     animation-iteration-count: 1;
+    opacity: 0.5;
+}
+
+#front .animatedSky .stars .starGroup {
+    position: absolute;
 }
 
 #front .animatedSky .stars .star img {
@@ -47,14 +54,13 @@
     animation-duration: 250s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    z-index: 15;
 }
 
-@keyframes starTwinkle {
-    50% {
-        opacity: 100%;
-    }
+@keyframes fadeStarAnimation {
     100% {
-        opacity: -1;
+        opacity: 0;
+        /*filter: blur(10px);*/
     }
 }
 
